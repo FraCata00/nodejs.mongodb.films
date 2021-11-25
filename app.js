@@ -50,6 +50,7 @@ async function main() {
         await client.connect();
         await findMovies(client);
         await findActors(client);
+        await findListofAll(client);
 
     } finally {
         await client.close();
@@ -86,6 +87,21 @@ async function findActors(client) {
         });
     } else {
         console.log('No actors found');
+    }
+}
+
+async function findListofAll(client) {
+    const curso = client.db(process.env.DB_NAME).collection('lists').find({});
+    const result = await cursor.toArray();
+
+    if (results.length > 0) {
+        results.forEach((result, i) => {
+
+            console.log(result);
+
+        });
+    } else {
+        console.log('Nothing found');
     }
 }
 
