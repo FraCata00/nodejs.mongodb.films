@@ -91,11 +91,19 @@ async function findActors(client) {
 }
 
 async function findListofAll(client) {
-    const cursor = client.db(process.env.DB_NAME).collection('lists').find({});
+    const cursor = client.db(process.env.DB_NAME).collection('actors').find({});
+    const cursor2 = client.db(process.env.DB_NAME).collection('movies').find({});
     const results = await cursor.toArray();
+    const results2 = await cursor2.toArray();
 
-    if (results.length > 0) {
+    if ((results.length > 0) && (results2.lenght > 0)) {
         results.forEach((result, i) => {
+
+            console.log(result);
+
+        });
+
+        results2.forEach((result, i) => {
 
             console.log(result);
 
