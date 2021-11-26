@@ -91,8 +91,8 @@ async function findActors(client) {
 }
 
 async function findListofAll(client) {
-    const curso = client.db(process.env.DB_NAME).collection('lists').find({});
-    const result = await cursor.toArray();
+    const cursor = client.db(process.env.DB_NAME).collection('lists').find({});
+    const results = await cursor.toArray();
 
     if (results.length > 0) {
         results.forEach((result, i) => {
