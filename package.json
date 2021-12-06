@@ -4,6 +4,7 @@
   "description": "Test app on Node.js express and MongoDB Atlas",
   "main": "index.js",
   "dependencies": {
+    "@elastic/elasticsearch": "^7.15.0",
     "abbrev": "^1.1.1",
     "accepts": "^1.3.7",
     "ansi-align": "^3.0.1",
